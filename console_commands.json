@@ -1,0 +1,52 @@
+{
+  "console": {
+    "ls": {
+      "description": "List content of a directory",
+      "command": "ls",
+      "flags": {
+        "-l": "Gives a detailed description including permisions",
+        "-a": "List includes hidden files"
+      }
+    }
+  },
+  "cd": {
+    "description": "Change directory",
+    "command": "cd",
+    "flags": {
+      "<directory name>": "Opens the named directory inside your current directory.",
+      "directory/path": "Opens the directory specified.",
+      "-": "Opens the last directory you had open."
+    }
+  },
+  "rm": {
+    "description": "Used to remove files",
+    "command": "rm",
+    "flags": {
+      "<filename>": "Deletes the named file.",
+      "*": "Will remove all the files in the current directory.",
+      "-r": "The recursive flag is needed to remove directorys and the files inside.",
+      "<filename>.*": "Will remove all matching filename patterns ie. <filename>.css and <filename>.js."
+    }
+  },
+  "cat": {
+    "description": "Lists the files contents in the terminal.",
+    "command": "cat",
+    "flags": {
+      "<filename>": "Lists the named file."
+    }
+  },
+  "less": {
+    "description": "Lists the files contents on screen but prompts you to scroll through the file one screen at a time.",
+    "command": "less",
+    "flags": {
+      "<filename>": "Lists the name filename."
+    }
+  },
+  ">": {
+    "description": "",
+    "command": "",
+    "flags": {
+      "flag_name": "description"
+    }
+  }
+}

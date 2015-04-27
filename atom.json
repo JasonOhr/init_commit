@@ -1,0 +1,24 @@
+{
+  "feature": {
+    "switch windows": {
+      "description": "Move between seperate windows in atom.io",
+      "shortcut": "cmd+ `",
+      "package": "inherent"
+    },
+    "switch tab": {
+      "description": "Move between tabs. Will first select last used tab.",
+      "shortcut": "opt+ tab",
+      "package": "enhanced-tab"
+    },
+    "show available snippets": {
+      "description": "Shows available snippets from open packages. One can also preforming a fuzzy search by typing in the selection box",
+      "shortcut": "alt+ shift+ s",
+      "package": "inherent"
+    },
+    "new snippet": {
+      "description": "Add a new snippet to the snippets.cson file under 'Atom > Open Your Snippets'",
+      "shortcut": "snip",
+      "package": "inherent"
+    }
+  }
+}

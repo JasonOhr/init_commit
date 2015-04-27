@@ -1,0 +1,114 @@
+{
+  "feature": {
+    "log": {
+      "description": "Checks log inforation",
+      "command": "log",
+      "flags": {
+        "--reverse": "Reverses the order returned by log",
+        "-p": "Shows the details in each commit",
+        "--oneline": "Show a lo of all commits, one line per commit.  Can make this the default by git config format.pretty oneline"
+      }
+    },
+    "commit": {
+      "description": "Saves the changes made to a branch",
+      "command": "commit",
+      "flags": {
+        "-m 'message'": "Follow this flag with the commit message inside of quotes",
+        "-a": "Allows you to skip manually adding a commit to the staging area prior to a commit ",
+        "--amend -m 'message'": "Changes the last commit message"
+      }
+    },
+    "add": {
+      "description": "Adds a commit to the staging area prior to a commit.  It's also used to add a file to a project. ",
+      "command": "add <file/path>",
+      "flags": {
+        ".": "Adds all files in the current directory to staging.",
+        "-A": "Adds all files in the current repo(even new files that are not yet tracked )",
+        "-u": "Add all files that are already being tracked (ignore new files)",
+        "-p": "Add just parts of changes to a file. 'p' stands for patch and lets you go through each section of a file that has changed and stage just parts of it."
+      }
+    },
+    "init": {
+      "description": "Adds the git version control to a project.  Version control can also be added to an existing project by running git init inside the projects root folder.  If this is done, the <projectName> can be ommited.  To remove this repository, delete it's .git file from the project.",
+      "command": "init <projectName>",
+      "flags": {
+        "flag name": "description"
+      }
+    },
+    "push": {
+      "description": "Merges a remote branc with another repository.  Depending on gits' configuration, you may have to include all the assoiated branches.",
+      "command": "push <receivingRepository> <yourBranch>",
+      "flags": {
+        "-u": "Allows easier communication to the upstream repository (origin)"
+      }
+    },
+    "remote": {
+      "description": "",
+      "command": "",
+      "flags": {
+        "add origin": "Adds the master repository to your computer.  Follow this command with the origins location, either a file or URL"
+      }
+    },
+    "pull": {
+      "description": "Used to merge code from a remote repository into your code",
+      "command": "",
+      "flags": {
+        "flag name": "description"
+      }
+    },
+    "diff": {
+      "description": "Shows differences between working tree and staging (or last commit)",
+      "command": "diff",
+      "flags": {
+        "--staged": "Show differences between staged changes and repository",
+        "--<file or directory/path>": "Show diferences for specific file or directory"
+      }
+    },
+    "checkout": {
+      "description": "Check out a branch of a repository",
+      "command": "checkout <branch_name>",
+      "flags": {
+        "-b <branch_name>": "Create a branch and check it out in one step",
+        "master": "Checkout the master",
+        "HEAD^ <file/path>": "To revert to the last committed version of a file but only if a> the file has been commited and b> is not currently is staging",
+        "<sha of commit> <file/path>": "Revert to version of file from a specific commit"
+      }
+    },
+    "branch": {
+      "description": "Used to manipulate the branches of the repository",
+      "command": "branch",
+      "flags": {
+        "no flag": "Lists all of the branches and highlights the branch currently checked out",
+        "<new_branch_name>": "If this follows the branch command, it creates a new branch.",
+        "-d <branch_name>": "Removes branch locally, but only if you've merged the branch.",
+        "-D <branch_name>": "Removes the branch even if you haven't merged the changes."
+      }
+    },
+    "merge": {
+      "description": "Used to merge branches",
+      "command": "merge",
+      "flags": {
+        "<name of branch>": "Merge changes from the branch and return to the master branch"
+      }
+    },
+    "reset": {
+      "description": "Used to undo or unstage a file or commit. Only use on local files before they've been pushed to a remote repository because they will change the history of the repo.",
+      "command": "reset",
+      "flags": {
+        "HEAD <file/path>": "Unstage a file where HEAD represents the current commit.",
+        "HEAD": "Unstage all staged files.",
+        "--soft HEAD^": "Undo last commit of entire repo, but leave files staged",
+        "--hard HEAD^": "Completely blow away last commit.  Changes files to state of previous commit.",
+        "--hard HEAD^^": "Completely blows away last two commits. Changes files to state prior to previous commit,",
+        "--hard <sha of commit>": "Returns files to state they were in after specified commit."
+      }
+    },
+    "config": {
+      "description": "Changes the gits' configuration files.",
+      "command": "config",
+      "flags": {
+        "--global alias.<alias> <command>": "Lets you type in shorter commands ie. alias.co checkout would allow you to type git co to check a branch out."
+      }
+    }
+  }
+}
