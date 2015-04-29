@@ -9,6 +9,15 @@
         "--oneline": "Show a lo of all commits, one line per commit.  Can make this the default by git config format.pretty oneline"
       }
     },
+    "status":{
+      "description": "Shows the status of the project",
+      "command": "status",
+      "flags": {
+        "-s": "Shows a less verbose version of status.  It shows the file name in the far right column and on the left, it has two colums.  The left one of these indicateds the file is staged and the right, whether it's been modified.  In the columns, an A represents a new file has been added tho the staging area, a M indicates the file has been modified, and ?? indicates files that aren't yet being tracked.  For example, a file with an M in the right columns has been modified and not staged, if the M is in the left column, it was modified and staged, and if an M is in both columns, it was modified, staged, then modified again without being staged.",
+        "--short": "This is the same as -s."
+
+      }
+    },
     "commit": {
       "description": "Saves the changes made to a branch",
       "command": "commit",
@@ -57,11 +66,11 @@
       }
     },
     "diff": {
-      "description": "Shows differences between working tree and staging (or last commit)",
+      "description": "Shows differences between working tree and staging (or last commit).  The command diff by itself will only show the changes between what is staged and what is unstaged.  If you've staged all of your changes, diff alone won't return anything",
       "command": "diff",
       "flags": {
         "--staged": "Show differences between staged changes and repository",
-        "--<file or directory/path>": "Show diferences for specific file or directory"
+        "--<file or directory/path>": "Show differences for specific file or directory"
       }
     },
     "checkout": {
@@ -104,10 +113,20 @@
       }
     },
     "config": {
-      "description": "Changes the gits' configuration files.",
+      "description": "Changes or shows the gits' configuration files and settings. Git has more than one config file, including one in etc/.  Git reads the last value it sees for a specific key, so if things seem off, verify the config files coincide.",
       "command": "config",
       "flags": {
-        "--global alias.<alias> <command>": "Lets you type in shorter commands ie. alias.co checkout would allow you to type git co to check a branch out."
+        "--global alias.<alias> <command>": "Lets you type in shorter commands ie. alias.co checkout would allow you to type git co to check a branch out.",
+        "--list": "Lists the configuration settings.",
+        "<key>": "Returns the value git is using for the keys value."
+      }
+    },
+    "clone":{
+      "description": "Gets a full copy of a project, generally creates a directory for it and initializes .git inside of the directory.",
+      "command": "clone <url>",
+      "flags": {
+        "<name>": "When added after the URL, it changes the name of the directory to <name> instead of the suggested file name in the url."
+    
       }
     }
   }

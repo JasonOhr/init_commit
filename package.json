@@ -1,0 +1,14 @@
+{
+  "name": "dev_notes",
+  "version": "0.0.1",
+  "description": "testing setup",
+  "main": "test.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "me",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
