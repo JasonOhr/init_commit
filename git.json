@@ -6,7 +6,18 @@
       "flags": {
         "--reverse": "Reverses the order returned by log",
         "-p": "Shows the details in each commit",
-        "--oneline": "Show a lo of all commits, one line per commit.  Can make this the default by git config format.pretty oneline"
+        "--oneline": "Show a list of all commits, one line per commit with a shortened sha-1.  Can make this the default by git config format.pretty oneline",
+        "-<number>": "limits the output to the last <number> of entries",
+        "--stat": "Shows some file statistics for each file, such as how many lines where modified and if they where added (+) or deleted (-).",
+        "--pretty=<option>": "This changes logs default output by taking additional options.  The oneline and format option also take a flag --graph that adds a representation of merge history.  Options-  <oneline>: Similar to --oneline except it shows the entire sha-1 of the commit. <short>: Includes the sha-1 and author. <full>: shows the sha-1, author and committer. <fuller>: Shows the sha-1, author, committer and the dates of both.  <format:>: Takes custom arguments.",
+        "--since=<argument>": "This lists logs relative to the arguments given.  You can add a specific date or something like 2.weeks.  This works for years, day, and minutes. Or even 2 years 1 day 3 minutes ago.",
+        "--after=<argument>": "The same as since",
+        "--until=<arguments>": "Similar to --since but returns commits before the time specified in the argument",
+        "--before=<argument>": "The same as until",
+        "--author=<argument>": "Returns the authors commits",
+        "--grep=<arguments>": "Only returns commits with a message containing a certain string",
+        "-S<string>": "Returns commits where a change was introduced that added or removed the <string>",
+        "--decorate": "This shows where the HEAD is."
       }
     },
     "status":{
@@ -24,7 +35,7 @@
       "flags": {
         "-m 'message'": "Follow this flag with the commit message inside of quotes",
         "-a": "Allows you to skip manually adding a commit to the staging area prior to a commit ",
-        "--amend -m 'message'": "Changes the last commit message"
+        "--amend -m 'message'": "Changes the last commit, the message is optional"
       }
     },
     "add": {
@@ -45,17 +56,30 @@
       }
     },
     "push": {
-      "description": "Merges a remote branc with another repository.  Depending on gits' configuration, you may have to include all the assoiated branches.",
-      "command": "push <receivingRepository> <yourBranch>",
+      "description": "Merges a remote branch with another repository.  Depending on gits' configuration, you may have to include all the associated branches and if a someone else has pushed changes to that branch since you pulled it last, you will have to pull down the new version of the branch an incorporate your changes.",
+      "command": "push <remote-name> <yourBranch>",
       "flags": {
         "-u": "Allows easier communication to the upstream repository (origin)"
       }
     },
     "remote": {
-      "description": "",
-      "command": "",
+      "description": "This shows the remote servers you have configured.",
+      "command": "remote",
       "flags": {
-        "add origin": "Adds the master repository to your computer.  Follow this command with the origins location, either a file or URL"
+        "add origin": "Adds the master repository to your computer.  Follow this command with the origins location, either a file or URL",
+        "-v": "This shows the remote URL's stored for the short name used when reading and writing to the remote.",
+        "add <shortname> <url>": "This adds a remote repository giving it the <shortname> to easily reference it.",
+        "show <shortname>": "This shows information regarding a remote repository you are tracking including which branches you have that you are tracking and which you are not.",
+        "rename <old-name> <new-name>": "This renames the remotes reference (shortname). At the same time it also changes the remote branch names, too.",
+        "rm <shortname>": "Removes the remote from your computer."
+      }
+    },
+    "fetch":{
+      "description": "This is used to pull all the data from a remote project that you don't have yet.  It doesn't merge anything into a project at this point.",
+      "command": "fetch <remote-name>",
+      "flags": {
+        "origin": "This fetches any new work that has been pushed to the remote server since you last cloned (fetched) it."
+
       }
     },
     "pull": {
@@ -74,13 +98,14 @@
       }
     },
     "checkout": {
-      "description": "Check out a branch of a repository",
+      "description": "Check out or switch to a branch of a repository",
       "command": "checkout <branch_name>",
       "flags": {
         "-b <branch_name>": "Create a branch and check it out in one step",
         "master": "Checkout the master",
         "HEAD^ <file/path>": "To revert to the last committed version of a file but only if a> the file has been commited and b> is not currently is staging",
-        "<sha of commit> <file/path>": "Revert to version of file from a specific commit"
+        "<sha of commit> <file/path>": "Revert to version of file from a specific commit",
+        "-- <file>": "If you have not committed the file, this will replace the named file with the last committed version.  Generally, this is not a good idea unless you are absolutely sure you want the changes.  There are better ways to stash a file."
       }
     },
     "branch": {
@@ -88,7 +113,7 @@
       "command": "branch",
       "flags": {
         "no flag": "Lists all of the branches and highlights the branch currently checked out",
-        "<new_branch_name>": "If this follows the branch command, it creates a new branch.",
+        "<new_branch_name>": "If this follows the branch command, it creates a new branch.  However, it does not switch to that branch automatically.",
         "-d <branch_name>": "Removes branch locally, but only if you've merged the branch.",
         "-D <branch_name>": "Removes the branch even if you haven't merged the changes."
       }
@@ -128,6 +153,18 @@
         "<name>": "When added after the URL, it changes the name of the directory to <name> instead of the suggested file name in the url."
     
       }
+    },
+    "rm":{
+      "description": "Used to re-name a file through git.",
+      "command": "rm <oldName> <newName>",
+      "flags": {
+        "flag": "description"
+    
+      }
     }
+  },
+  "notes":{
+    "general": "Learn more about: tags",
+    "HEAD": "This is the pointer pointing at the local branch your currently on."
   }
 }
