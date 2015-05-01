@@ -17,7 +17,9 @@
         "--author=<argument>": "Returns the authors commits",
         "--grep=<arguments>": "Only returns commits with a message containing a certain string",
         "-S<string>": "Returns commits where a change was introduced that added or removed the <string>",
-        "--decorate": "This shows where the HEAD is."
+        "--decorate": "This shows where the HEAD is.",
+        "--all": "This includes all the commits on a branch, even it they don't apply to where you are in its history.",
+        "--max-count<n>": "Returns a log with the last <n> commits."
       }
     },
     "status":{
@@ -161,10 +163,27 @@
         "flag": "description"
     
       }
+    },
+    "revert": {
+      "description": "This will revert back to the last commit",
+      "command": "revert",
+      "flags": {
+        "HEAD": "Reverts back to the previous commit",
+        "HEAD --no-edit": "It allows you to revert without entering the editor."
+      }
+    },
+    "tag": {
+      "description": "Adds descriptive short cuts to a branch in order to help navigate.",
+      "command": "tag",
+      "flags": {
+        "<none>": "tag by itself lists the available tags.",
+        "<tag-name>": "Assigns a name to a tag.",
+        "-d <tag-name>": "Deletes the tag"
+      }
     }
   },
   "notes":{
     "general": "Learn more about: tags",
     "HEAD": "This is the pointer pointing at the local branch your currently on."
   }
-}
+}//TODO: Testin todo
